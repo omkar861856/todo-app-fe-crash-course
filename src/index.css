@@ -1,0 +1,11 @@
+.todoItem{
+    display: flex;
+    justify-content: space-between;
+}
+
+#appDiv{
+
+    display: grid;
+    justify-content: center;
+
+}

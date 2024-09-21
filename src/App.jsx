@@ -1,11 +1,13 @@
 import TodoList from "./TodoList"
 import TodoForm from "./TodoForm"
+import { useState } from "react"
 
 const App = () => {
+  const [common, setCommon] = useState(false)
   return (
-    <div>
-      <TodoForm />
-      <TodoList />
+    <div id="appDiv">
+      <TodoForm common={common} setCommon={setCommon}/>
+      <TodoList common={common} setCommon={setCommon}/>
     </div>
   )
 }

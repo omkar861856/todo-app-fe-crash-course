@@ -1,15 +1,18 @@
 import { useState } from "react";
 import { api } from "./api";
-const TodoForm = () => {
+const TodoForm = ({common, setCommon}) => {
   const [todo, setTodo] = useState("");
   async function submitTodo(e) {
     e.preventDefault();
-    alert(todo)
     await fetch(`${api}/todo`, {
       method: "POST",
-      body: JSON.stringify({todo}),
+      headers: {
+        "Content-Type": "application/json", // Set the appropriate header
+      },
+      body: JSON.stringify({title:todo}),
       //{"title":"todo4"}
     });
+    setCommon(!common)
     setTodo('')
   }
   return (
@@ -19,6 +22,7 @@ const TodoForm = () => {
           onInput={(e) => {
             setTodo(e.target.value);
           }}
+          value={todo}
           type="text"
           name="todo"
           id="todo"
