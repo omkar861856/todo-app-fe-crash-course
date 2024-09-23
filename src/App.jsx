@@ -13,3 +13,9 @@ const App = () => {
 }
 
 export default App
+
+// there must only one and minimum one default export
+
+// useContext hook
+
+// redux - complex state management.

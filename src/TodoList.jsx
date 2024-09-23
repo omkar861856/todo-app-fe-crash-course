@@ -6,19 +6,35 @@ const TodoList = ({common, setCommon}) => {
 
   const [todoList, setTodoList] = useState([]);
 
+  // lifecycle methods of a component.
 
   useEffect(() => {
+
+    // logic - when the component is loaded in view
     async function fetchData() {
       // fetch() method is an inbuilt method
       // provided by the browser
       // for making network calls.
       const result = await fetch(`${api}/todos`);
       const resultJson = await result.json();
-      setTodoList(resultJson);
+      setTodoList(resultJson);// called - 
+      // state will/ has changed
+      // it should update view.
+      // reconcile with the real dom.
 
     }
 
     fetchData();
+
+    // unmount logic
+
+    // component cleanup function.
+
+    return ()=>{
+      console.log("Component unmounted from view")
+    }
+
+
   }, [common]);// dependency array
 
   async function EditTodo(todoValue){
@@ -63,3 +79,16 @@ const TodoList = ({common, setCommon}) => {
 };
 
 export default TodoList;
+
+export function SingleTodo(){
+
+  return(
+    <div>
+
+    </div>
+  )
+
+}
+
+// named can be any number.
+
