@@ -24,15 +24,7 @@ const TodoList = ({common, setCommon}) => {
 
     }
 
-    fetchData();
-
-    // unmount logic
-
-    // component cleanup function.
-
-    return ()=>{
-      console.log("Component unmounted from view")
-    }
+    fetchData()
 
 
   }, [common]);// dependency array
